@@ -1,0 +1,49 @@
+BusinessHour
+  - day (unique, scope business)
+  - open_hour
+  - close_hour
+  - business_id
+
+Address
+  - line1
+  - line2
+  - city_id
+  - city_name
+  - state_id
+  - state_abbr
+  - postal_code_id
+  - zip
+  - addressable_type
+  - addressable_id
+
+WorkType
+  - name
+
+City
+  - name
+  - postal_code_id
+
+PostalCode
+  - code (unique)
+
+State
+  - abbr
+
+Review
+  - rating
+  - comment
+  - business_id
+
+Business
+  - name
+  - avg_rating
+
+---join tables---
+
+BusinessWorkType
+  - business_id
+  - work_type_id
+
+BusinessReview
+  - business_id
+  - review_id
