@@ -21,7 +21,6 @@ WorkType
 
 City
   - name
-  - postal_code_id
 
 PostalCode
   - code (unique)
@@ -47,3 +46,7 @@ BusinessWorkType
 BusinessReview
   - business_id
   - review_id
+
+CityPostalCode
+  - city_id
+  - postal_code_id

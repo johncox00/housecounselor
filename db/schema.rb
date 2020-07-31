@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_142807) do
+ActiveRecord::Schema.define(version: 2020_07_31_210640) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
     t.float "avg_rating", default: 0.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "city_postal_codes", force: :cascade do |t|
+    t.integer "city_id", null: false
+    t.integer "postal_code_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_id"], name: "index_city_postal_codes_on_city_id"
+    t.index ["postal_code_id"], name: "index_city_postal_codes_on_postal_code_id"
+  end
+
+  create_table "postal_codes", force: :cascade do |t|
+    t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,5 +49,13 @@ ActiveRecord::Schema.define(version: 2020_07_31_142807) do
     t.index ["business_id"], name: "index_reviews_on_business_id"
   end
 
+  create_table "states", force: :cascade do |t|
+    t.string "abbr"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "city_postal_codes", "cities"
+  add_foreign_key "city_postal_codes", "postal_codes"
   add_foreign_key "reviews", "businesses"
 end
