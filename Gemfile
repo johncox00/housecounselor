@@ -54,6 +54,7 @@ group :test do
   gem 'pry-byebug'
   gem 'rails-controller-testing'
   gem 'api_matchers'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
