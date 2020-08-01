@@ -6,7 +6,7 @@ In this document, we'll first go through setting up the app to run on a Mac. The
 
 ## Set-up
 
-The Ruby version used for this project is `2.6.5`. I use [Ruby Version Manager](https://rvm.io/) to keep manage my per-project dependencies, and I generally use it to install and manage different versions of Ruby per their documentation. If you're not doing a lot of Rails development, you may not need it. I'm going to assume that you have RVM installed for the first part of the set-up and that you're in the directory above root of this project having just cloned it.
+The Ruby version used for this project is `2.6.5`. I use [Ruby Version Manager](https://rvm.io/) to manage my per-project dependencies, and I generally use it to install and manage different versions of Ruby per their documentation. If you're not doing a lot of Rails development, you may not need it. I'm going to assume that you have RVM installed for the first part of the set-up and that you're in the directory above root of this project having just cloned it.
 
 Here we go:
 
