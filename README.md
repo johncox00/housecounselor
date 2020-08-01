@@ -139,7 +139,7 @@ Time is 24-hr based rather than AM/PM. Business hours are very simplistic with `
 
 ### Pagination
 
-All non-determinant listing requests are paginated. On these requests, the `page` and `per` query string parameters are available to make specifications on which page of data you want and how many results to return per page. The default value for `per` is 10. All paginated results are returned with a standard format with pagination metadata like this:
+All non-determinant listing requests are paginated. On these requests, the `page` and `per` query string parameters are available to make specifications on which page of data you want and how many results to return per page. The default value for `per` is 20. All paginated results are returned with a standard format with pagination metadata like this:
 
 ```
 {
