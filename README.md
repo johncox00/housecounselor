@@ -3,11 +3,11 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-##NOTES
+## NOTES
 
 Time is 24-hr based rather than AM/PM. Business hours are very simplistic with `open` and `close` being designated with just an integer and assuming that businesses are not operating overnight (i.e. the `open` time will always be a smaller number than the `close` time).
 
-###Filters
+### Filters
 
 | Query string param  | Functionality  |
 |---------------------|----------------|
@@ -19,7 +19,7 @@ Time is 24-hr based rather than AM/PM. Business hours are very simplistic with `
 |  `city` | Will look for businesses that operate int he specific city. (case sensitive)  |
 | `rating`  | Return any businesses with the given rating or higher.  |
 
-###Sorting
+### Sorting
 
 We use the `sort` query string parameter to specify the order of the results (carried across pages).
 
