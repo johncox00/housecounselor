@@ -8,7 +8,65 @@ class BusinessesController < ApplicationController
   # GET /businesses
   # GET /businesses.json
   def index
-    @businesses = Business.page(@page).per(@per)
+    @businesses = Business.all
+
+    ##  filtering  ##  NOTE: This would be more performant using Elasticsearch or similar
+    if params[:name]
+      @businesses = @businesses.where('LOWER(name) LIKE ?', "%#{params[:name].downcase}%")
+    end
+    if params[:open_at] || params[:open_days]
+      hours = BusinessHour.all
+      if params[:open_at]
+        hours = hours.where('open <= ? AND close > ?', params[:open_at], params[:open_at])
+      end
+      if params[:open_days]
+        days = params[:open_days].split(',')
+        hours = hours.where(day: days)
+      end
+      @businesses = @businesses.where(id: hours.pluck(:business_id))
+    end
+    if params[:work_type]
+      wt = WorkType.find_by_name(params[:work_type]).id
+      @businesses = @businesses.where(id: BusinessWorkType.where(work_type_id: wt).pluck(:business_id))
+    end
+    if params[:postal_code]
+      code = PostalCode.find_by_code(params[:postal_code])
+      if code
+        #find the cities this zip goes with
+        city_ids = CityPostalCode.where(postal_code_id: code.id).pluck(:city_id)
+        #find the business that operate in these cities
+        business_ids = BusinessCity.where(city_id: city_ids).pluck(:business_id)
+        @businesses = @businesses.where(id: business_ids)
+      else
+        @businesses = Business.where(id: -1)
+      end
+    end
+    if params[:city]
+      city = City.find_by_name(params[:city])
+      if city
+        business_ids = BusinessCity.where(city_id: city.id).pluck(:business_id)
+        @businesses = @businesses.where(id: business_ids)
+      else
+        @businesses = Business.where(id: -1)
+      end
+    end
+    if params[:rating]
+      @businesses = @businesses.where('avg_rating >= ?', params[:rating])
+    end
+
+
+    ## sorting ##
+    if params[:sort] == 'az'
+      @businesses = @businesses.order('name ASC')
+    elsif params[:sort] == 'za'
+      @businesses = @businesses.order('name DESC')
+    elsif params[:sort] == 'lohi'
+      @businesses = @businesses.order('avg_rating ASC')
+    elsif params[:sort] == 'hilo'
+      @businesses = @businesses.order('avg_rating DESC')
+    end
+
+    @businesses = @businesses.page(@page).per(@per)
   end
 
   # GET /businesses/1
