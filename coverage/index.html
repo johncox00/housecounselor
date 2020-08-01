@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-08-01T11:01:43-06:00">2020-08-01T11:01:43-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-08-01T11:14:49-06:00">2020-08-01T11:14:49-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  94.75%
+  95.1%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>305</b> relevant lines,
-    <span class="green"><b>289</b> lines covered</span> and
-    <span class="red"><b>16</b> lines missed. </span>
+    <b>306</b> relevant lines,
+    <span class="green"><b>291</b> lines covered</span> and
+    <span class="red"><b>15</b> lines missed. </span>
     (<span class="green">
-  94.75%
+  95.1%
 </span>
 )
   </div>
@@ -94,12 +94,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#e1e1e71b2e42c98f1d6e8ff4afeb502613c78c6b" class="src_link" title="app/controllers/businesses_controller.rb">app/controllers/businesses_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">92.55 %</td>
-            <td class="cell--number">168</td>
-            <td class="cell--number">94</td>
-            <td class="cell--number">87</td>
-            <td class="cell--number">7</td>
-            <td class="cell--number">4.15</td>
+            <td class="green strong cell--number t-file__coverage">93.68 %</td>
+            <td class="cell--number">170</td>
+            <td class="cell--number">95</td>
+            <td class="cell--number">89</td>
+            <td class="cell--number">6</td>
+            <td class="cell--number">4.14</td>
             
           </tr>
         
@@ -1606,7 +1606,7 @@
     <h3>app/controllers/businesses_controller.rb</h3>
     <h4>
       <span class="green">
-  92.55%
+  93.68%
 </span>
 
       lines covered
@@ -1615,9 +1615,9 @@
     
 
     <div class="t-line-summary">
-      <b>94</b> relevant lines.
-      <span class="green"><b>87</b> lines covered</span> and
-      <span class="red"><b>7</b> lines missed.</span>
+      <b>95</b> relevant lines.
+      <span class="green"><b>89</b> lines covered</span> and
+      <span class="red"><b>6</b> lines missed.</span>
     </div>
 
     
@@ -2805,29 +2805,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="108">
-            
-            
-
-            
-
-            <code class="ruby">          @business.cities = City.where(name: business_params[:operating_cities])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="109">
-            
-            
-
-            
-
-            <code class="ruby">          @business.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="110">
+          <li class="never" data-hits="" data-linenumber="108">
             
             
 
@@ -2838,7 +2816,51 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="111">
+          <li class="covered" data-hits="1" data-linenumber="109">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        if business_params[:operating_cities]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="110">
+            
+            
+
+            
+
+            <code class="ruby">          @business.cities = City.where(name: business_params[:operating_cities])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="111">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="112">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        @business.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="113">
             <span class="hits">2</span>
             
 
@@ -2849,7 +2871,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="112">
+          <li class="never" data-hits="" data-linenumber="114">
             
             
 
@@ -2860,7 +2882,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="113">
+          <li class="missed" data-hits="0" data-linenumber="115">
             
             
 
@@ -2871,7 +2893,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="114">
+          <li class="missed" data-hits="0" data-linenumber="116">
             
             
 
@@ -2882,35 +2904,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="115">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="116">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
           <li class="never" data-hits="" data-linenumber="117">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -2921,7 +2921,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -2932,7 +2932,7 @@
 
             
 
-            <code class="ruby">  # DELETE /businesses/1</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -2943,29 +2943,29 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="121">
+            
+            
+
+            
+
+            <code class="ruby">  # DELETE /businesses/1</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="122">
+            
+            
+
+            
+
             <code class="ruby">  # DELETE /businesses/1.json</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="121">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="122">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    @business.destroy</code>
           </li>
         </div>
       
@@ -2976,12 +2976,34 @@
 
             
 
+            <code class="ruby">  def destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="124">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    @business.destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="125">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    respond_to do |format|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="124">
+          <li class="covered" data-hits="2" data-linenumber="126">
             <span class="hits">2</span>
             
 
@@ -2992,7 +3014,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="125">
+          <li class="never" data-hits="" data-linenumber="127">
             
             
 
@@ -3003,7 +3025,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="126">
+          <li class="never" data-hits="" data-linenumber="128">
             
             
 
@@ -3014,35 +3036,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="127">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="128">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  private</code>
-          </li>
-        </div>
-      
-        <div>
           <li class="never" data-hits="" data-linenumber="129">
             
             
 
             
 
-            <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -3053,12 +3053,34 @@
 
             
 
+            <code class="ruby">  private</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="131">
+            
+            
+
+            
+
+            <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="132">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    def set_business</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="131">
+          <li class="covered" data-hits="4" data-linenumber="133">
             <span class="hits">4</span>
             
 
@@ -3069,7 +3091,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="132">
+          <li class="never" data-hits="" data-linenumber="134">
             
             
 
@@ -3080,7 +3102,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="133">
+          <li class="never" data-hits="" data-linenumber="135">
             
             
 
@@ -3091,7 +3113,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="134">
+          <li class="covered" data-hits="1" data-linenumber="136">
             <span class="hits">1</span>
             
 
@@ -3102,7 +3124,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="135">
+          <li class="covered" data-hits="3" data-linenumber="137">
             <span class="hits">3</span>
             
 
@@ -3113,7 +3135,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="136">
+          <li class="never" data-hits="" data-linenumber="138">
             
             
 
@@ -3124,7 +3146,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="137">
+          <li class="never" data-hits="" data-linenumber="139">
             
             
 
@@ -3135,7 +3157,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="138">
+          <li class="covered" data-hits="1" data-linenumber="140">
             <span class="hits">1</span>
             
 
@@ -3146,7 +3168,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="139">
+          <li class="covered" data-hits="3" data-linenumber="141">
             <span class="hits">3</span>
             
 
@@ -3157,7 +3179,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="140">
+          <li class="never" data-hits="" data-linenumber="142">
             
             
 
@@ -3168,7 +3190,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="141">
+          <li class="never" data-hits="" data-linenumber="143">
             
             
 
@@ -3179,7 +3201,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="142">
+          <li class="covered" data-hits="1" data-linenumber="144">
             <span class="hits">1</span>
             
 
@@ -3190,7 +3212,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="143">
+          <li class="covered" data-hits="3" data-linenumber="145">
             <span class="hits">3</span>
             
 
@@ -3201,7 +3223,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="144">
+          <li class="never" data-hits="" data-linenumber="146">
             
             
 
@@ -3212,7 +3234,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="145">
+          <li class="never" data-hits="" data-linenumber="147">
             
             
 
@@ -3223,7 +3245,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="146">
+          <li class="covered" data-hits="1" data-linenumber="148">
             <span class="hits">1</span>
             
 
@@ -3234,7 +3256,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="147">
+          <li class="covered" data-hits="3" data-linenumber="149">
             <span class="hits">3</span>
             
 
@@ -3245,7 +3267,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="148">
+          <li class="never" data-hits="" data-linenumber="150">
             
             
 
@@ -3256,35 +3278,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="149">
+          <li class="never" data-hits="" data-linenumber="151">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="150">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    def modified_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="151">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">      if business_params[:address_attributes]</code>
           </li>
         </div>
       
@@ -3295,18 +3295,18 @@
 
             
 
-            <code class="ruby">        new_params = business_params[:address_attributes].except(:city, :state, :postal_code)</code>
+            <code class="ruby">    def modified_params</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="153">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="3" data-linenumber="153">
+            <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">        new_params[:city_id] = @city.id if business_params[:address_attributes][:city]</code>
+            <code class="ruby">      if business_params[:address_attributes]</code>
           </li>
         </div>
       
@@ -3317,7 +3317,7 @@
 
             
 
-            <code class="ruby">        new_params[:state_id] = @state.id if business_params[:address_attributes][:state]</code>
+            <code class="ruby">        new_params = business_params[:address_attributes].except(:city, :state, :postal_code)</code>
           </li>
         </div>
       
@@ -3328,7 +3328,7 @@
 
             
 
-            <code class="ruby">        new_params[:postal_code_id] = @zip.id if business_params[:address_attributes][:postal_code]</code>
+            <code class="ruby">        new_params[:city_id] = @city.id if business_params[:address_attributes][:city]</code>
           </li>
         </div>
       
@@ -3339,7 +3339,7 @@
 
             
 
-            <code class="ruby">        ret = business_params.dup</code>
+            <code class="ruby">        new_params[:state_id] = @state.id if business_params[:address_attributes][:state]</code>
           </li>
         </div>
       
@@ -3350,29 +3350,29 @@
 
             
 
+            <code class="ruby">        new_params[:postal_code_id] = @zip.id if business_params[:address_attributes][:postal_code]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="158">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        ret = business_params.dup</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="159">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">        ret[:address_attributes] = new_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="158">
-            
-            
-
-            
-
-            <code class="ruby">      else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="159">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">        ret = business_params</code>
           </li>
         </div>
       
@@ -3383,18 +3383,18 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">      else</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="161">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="2" data-linenumber="161">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      return ret</code>
+            <code class="ruby">        ret = business_params</code>
           </li>
         </div>
       
@@ -3405,18 +3405,18 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="163">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="163">
+            <span class="hits">3</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">      return ret</code>
           </li>
         </div>
       
@@ -3427,12 +3427,34 @@
 
             
 
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="165">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="166">
+            
+            
+
+            
+
             <code class="ruby">    # Only allow a list of trusted parameters through.</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="165">
+          <li class="covered" data-hits="1" data-linenumber="167">
             <span class="hits">1</span>
             
 
@@ -3443,8 +3465,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="30" data-linenumber="166">
-            <span class="hits">30</span>
+          <li class="covered" data-hits="31" data-linenumber="168">
+            <span class="hits">31</span>
             
 
             
@@ -3454,7 +3476,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="167">
+          <li class="never" data-hits="" data-linenumber="169">
             
             
 
@@ -3465,7 +3487,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="168">
+          <li class="never" data-hits="" data-linenumber="170">
             
             
 

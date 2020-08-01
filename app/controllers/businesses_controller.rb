@@ -105,9 +105,11 @@ class BusinessesController < ApplicationController
       if @business.update(modified_params.except(:work_types, :operating_cities))
         if business_params[:work_types]
           @business.work_types = WorkType.where(name: business_params[:work_types])
-          @business.cities = City.where(name: business_params[:operating_cities])
-          @business.save
         end
+        if business_params[:operating_cities]
+          @business.cities = City.where(name: business_params[:operating_cities])
+        end
+        @business.save
         format.json { render :show, status: :ok, location: @business }
       else
         format.html { render :edit }
