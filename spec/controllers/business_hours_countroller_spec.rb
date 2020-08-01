@@ -35,7 +35,8 @@ RSpec.describe BusinessHoursController, type: :controller do
 
     it "returns a 404" do
       r = business_hour
-      expect{get :show, params: {business_id: biz.id, id: 'bad'}, session: valid_session, format: :json}.to raise_error(ActiveRecord::RecordNotFound)
+      get :show, params: {business_id: biz.id, id: 'bad'}, session: valid_session, format: :json
+      expect(response).to have_http_status(:not_found)
     end
   end
 

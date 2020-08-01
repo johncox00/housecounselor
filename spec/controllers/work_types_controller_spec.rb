@@ -31,7 +31,8 @@ RSpec.describe WorkTypesController, type: :controller do
     end
 
     it "returns a 404" do
-      expect{get :show, params: {id: 'bad'}, session: valid_session, format: :json}.to raise_error(ActiveRecord::RecordNotFound)
+      get :show, params: {id: 'bad'}, session: valid_session, format: :json
+      expect(response).to have_http_status(:not_found)
     end
   end
 

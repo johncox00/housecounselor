@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  after_action :unify_errors
   before_action :set_page
 
   def set_page
@@ -8,26 +7,14 @@ class ApplicationController < ActionController::Base
     @per = params[:per] ? Integer(params[:per]) : 20
   end
 
-  protected
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-    def unify_errors
-      if response.status > 399
-        body = JSON.parse(response.body)
-        if body['errors']
-          body['errors'] = create_error_array(body['errors']) unless body['errors'].is_a?(Array)
-        else
-          body['errors'] = create_error_array(body)
-        end
-        response.body = body.to_json
-      end
-    rescue JSON::ParserError
-    end
+  def render_unprocessable_entity_response(exception)
+    render json: exception.record.errors, status: :unprocessable_entity
+  end
 
-    def create_error_array(error_hash)
-      [].tap do |errs|
-        error_hash.each do |field, errors|
-          errors.each{|e| errs << "#{field} #{e}" unless field == 'full_messages'}
-        end
-      end
-    end
+  def render_not_found_response(exception)
+    render json: { error: exception.message }, status: :not_found
+  end
 end
