@@ -8,3 +8,6 @@ end
 json.business_hours do
   json.array! business.business_hours, partial: 'business_hours/business_hour', as: :business_hour
 end
+json.operating_cities do
+  json.array! business.cities.pluck(:name)
+end

@@ -17,6 +17,11 @@ RSpec.describe BusinessesController, type: :controller do
         'Construct',
         'Destroy',
         'Not real'
+      ],
+      operating_cities: [
+        'Highlands Ranch',
+        'Littleton',
+        'Centennial'
       ]
     }
   }
@@ -31,6 +36,13 @@ RSpec.describe BusinessesController, type: :controller do
     WorkType.find_or_create_by(name: 'Construct')
     WorkType.find_or_create_by(name: 'Destroy')
     WorkType.find_or_create_by(name: 'Clean')
+    state = State.find_or_create_by(abbr: 'CO')
+    [
+      'Highlands Ranch',
+      'Littleton',
+      'Centennial'
+    ].each{|c| City.find_or_create_by(name: c, state: state)}
+
   end
 
   describe "GET #index" do
@@ -66,6 +78,7 @@ RSpec.describe BusinessesController, type: :controller do
           json = JSON.parse(response.body)
           expect(json['address_attributes']['postal_code']).to eq('80126')
           expect(json['work_types'].length).to eq(2)
+          expect(json['operating_cities'].length).to eq(3)
         }.to change(Business, :count).by(1)
       end
     end

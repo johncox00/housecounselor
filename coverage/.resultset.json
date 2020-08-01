@@ -440,6 +440,7 @@
           2,
           2,
           2,
+          2,
           null,
           2,
           null,
@@ -452,6 +453,7 @@
           1,
           1,
           1,
+          0,
           0,
           0,
           null,
@@ -510,7 +512,7 @@
           null,
           null,
           1,
-          28,
+          30,
           null,
           null
         ]
@@ -667,6 +669,23 @@
           null
         ]
       },
+      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/business_city.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/business_hour.rb": {
         "lines": [
           1,
@@ -685,15 +704,10 @@
           null
         ]
       },
-      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
       "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/business.rb": {
         "lines": [
+          1,
+          1,
           1,
           1,
           1,
@@ -707,6 +721,8 @@
       },
       "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/city.rb": {
         "lines": [
+          1,
+          1,
           1,
           1,
           1,
@@ -750,6 +766,14 @@
           null
         ]
       },
+      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/state.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/address.rb": {
         "lines": [
           1,
@@ -769,14 +793,6 @@
           null
         ]
       },
-      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/state.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
       "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/city_postal_code.rb": {
         "lines": [
           1,
@@ -786,6 +802,6 @@
         ]
       }
     },
-    "timestamp": 1596288172
+    "timestamp": 1596289338
   }
 }

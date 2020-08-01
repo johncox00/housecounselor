@@ -28,8 +28,9 @@ class BusinessesController < ApplicationController
   # POST /businesses
   # POST /businesses.json
   def create
-    @business = Business.new(modified_params.except(:work_types))
+    @business = Business.new(modified_params.except(:work_types, :operating_cities))
     @business.work_types = WorkType.where(name: business_params[:work_types])
+    @business.cities = City.where(name: business_params[:operating_cities])
     respond_to do |format|
       if @business.save
         format.json { render :show, status: :created, location: @business }
@@ -43,9 +44,10 @@ class BusinessesController < ApplicationController
   # PATCH/PUT /businesses/1.json
   def update
     respond_to do |format|
-      if @business.update(modified_params.except(:work_types))
+      if @business.update(modified_params.except(:work_types, :operating_cities))
         if business_params[:work_types]
           @business.work_types = WorkType.where(name: business_params[:work_types])
+          @business.cities = City.where(name: business_params[:operating_cities])
           @business.save
         end
         format.json { render :show, status: :ok, location: @business }
@@ -103,6 +105,6 @@ class BusinessesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def business_params
-      params.require(:business).permit(:name, address_attributes: [:id, :line1, :line2, :city, :state, :postal_code], work_types: [])
+      params.require(:business).permit(:name, address_attributes: [:id, :line1, :line2, :city, :state, :postal_code], work_types: [], operating_cities: [])
     end
 end
