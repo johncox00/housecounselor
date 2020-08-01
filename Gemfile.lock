@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/johncox00/each_with_progress.git
+  revision: 4c43ca1d4634986e18d405cdf0b94a151fbf1d7a
+  specs:
+    each_with_progress (0.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -265,6 +271,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  each_with_progress!
   factory_bot_rails
   faker
   jbuilder (~> 2.7)

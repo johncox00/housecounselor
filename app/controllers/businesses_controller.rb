@@ -1,5 +1,9 @@
 class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :edit, :update, :destroy]
+  before_action :set_zip, only: [:create, :update]
+  before_action :set_state, only: [:create, :update]
+  before_action :set_city, only: [:create, :update]
+  before_action :set_city_postal_code, only: [:create, :update]
 
   # GET /businesses
   # GET /businesses.json
@@ -24,7 +28,8 @@ class BusinessesController < ApplicationController
   # POST /businesses
   # POST /businesses.json
   def create
-    @business = Business.new(business_params)
+    @business = Business.new(modified_params)
+
 
     respond_to do |format|
       if @business.save
@@ -39,7 +44,7 @@ class BusinessesController < ApplicationController
   # PATCH/PUT /businesses/1.json
   def update
     respond_to do |format|
-      if @business.update(business_params)
+      if @business.update(modified_params)
         format.json { render :show, status: :ok, location: @business }
       else
         format.html { render :edit }
@@ -63,8 +68,38 @@ class BusinessesController < ApplicationController
       @business = Business.find(params[:id])
     end
 
+    def set_city
+      @city = City.find_or_create_by(name: business_params[:address_attributes][:city], state: @state) if business_params[:address_attributes] && business_params[:address_attributes][:city]
+    end
+
+    def set_state
+      @state = State.find_or_create_by(abbr: business_params[:address_attributes][:state]) if business_params[:address_attributes] && business_params[:address_attributes][:state]
+    end
+
+    def set_zip
+      @zip = PostalCode.find_or_create_by(code: business_params[:address_attributes][:postal_code]) if business_params[:address_attributes] && business_params[:address_attributes][:postal_code]
+    end
+
+    def set_city_postal_code
+      @city_postal_code = CityPostalCode.find_or_create_by(postal_code: @zip, city: @city) if @city && @zip
+    end
+
+    def modified_params
+      if business_params[:address_attributes]
+        new_params = business_params[:address_attributes].except(:city, :state, :postal_code)
+        new_params[:city_id] = @city.id if business_params[:address_attributes][:city]
+        new_params[:state_id] = @state.id if business_params[:address_attributes][:state]
+        new_params[:postal_code_id] = @zip.id if business_params[:address_attributes][:postal_code]
+        ret = business_params.dup
+        ret[:address_attributes] = new_params
+      else
+        ret = business_params
+      end
+      return ret
+    end
+
     # Only allow a list of trusted parameters through.
     def business_params
-      params.require(:business).permit(:name)
+      params.require(:business).permit(:name, address_attributes: [:id, :line1, :line2, :city, :state, :postal_code])
     end
 end

@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_210640) do
+ActiveRecord::Schema.define(version: 2020_08_01_092355) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "line1"
+    t.string "line2"
+    t.integer "city_id", null: false
+    t.integer "state_id", null: false
+    t.integer "postal_code_id", null: false
+    t.string "addressable_type", null: false
+    t.integer "addressable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
+    t.index ["city_id"], name: "index_addresses_on_city_id"
+    t.index ["postal_code_id"], name: "index_addresses_on_postal_code_id"
+    t.index ["state_id"], name: "index_addresses_on_state_id"
+  end
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -23,6 +39,8 @@ ActiveRecord::Schema.define(version: 2020_07_31_210640) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "state_id", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
   create_table "city_postal_codes", force: :cascade do |t|
@@ -55,6 +73,10 @@ ActiveRecord::Schema.define(version: 2020_07_31_210640) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "addresses", "cities"
+  add_foreign_key "addresses", "postal_codes"
+  add_foreign_key "addresses", "states"
+  add_foreign_key "cities", "states"
   add_foreign_key "city_postal_codes", "cities"
   add_foreign_key "city_postal_codes", "postal_codes"
   add_foreign_key "reviews", "businesses"

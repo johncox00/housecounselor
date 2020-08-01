@@ -4,7 +4,16 @@ RSpec.describe BusinessesController, type: :controller do
   let(:biz) { FactoryBot.create(:business) }
 
   let(:valid_attributes) {
-    { name: "butch's flattops" }
+    {
+      name: "butch's flattops",
+      address_attributes: {
+        line1: '123 main st',
+        line2: 'apt 2',
+        city: 'Littleton',
+        state: 'CO',
+        postal_code: '80126'
+      }
+    }
   }
 
   let(:invalid_attributes) {
@@ -37,9 +46,10 @@ RSpec.describe BusinessesController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Business" do
+      it "creates a new Business with an address" do
         expect {
           post :create, params: {business: valid_attributes}, session: valid_session, format: :json
+          expect(JSON.parse(response.body)['address_attributes']['postal_code']).to eq('80126')
         }.to change(Business, :count).by(1)
       end
     end

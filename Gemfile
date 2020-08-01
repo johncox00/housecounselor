@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -51,7 +52,6 @@ group :test do
   gem 'rspec-rails', '~> 4.0.1'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'pry-byebug'
   gem 'rails-controller-testing'
   gem 'api_matchers'
   gem 'simplecov', require: false
@@ -61,3 +61,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rack-cors', :require => 'rack/cors'
 gem 'kaminari'
+gem 'each_with_progress', :git => 'https://github.com/johncox00/each_with_progress.git'
