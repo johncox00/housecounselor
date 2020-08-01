@@ -2,7 +2,7 @@
 
 Here we have a fairly simple (naive?) REST API designed to allow service business to provide information about themselves and receive ratings and reviews. The resources and outputs of this API don't match the sample data from this assignment 100% just to keep things Rails-y in this Rails app, but the ideas behind them absolutely do.
 
-In this document, we'll first go through setting up the app to run on a Mac. Then we'll talk about some of the particulars of the API and how to analyze what has been done. There's not much deviation from standard REST patterns executed in Rails' MVC framework working against a fairly normal-feeling ORM if you're used to using an ORM.
+In this document, we'll first go through setting up the app to run on a Mac. Then we'll talk about some of the particulars of the API and how to analyze what has been done. There's not much deviation from standard REST patterns executed in Rails' MVC framework.
 
 ## Set-up
 
