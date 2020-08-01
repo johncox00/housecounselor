@@ -5,3 +5,6 @@ end
 json.work_types do
   json.array! business.work_types.pluck(:name)
 end
+json.business_hours do
+  json.array! business.business_hours, partial: 'business_hours/business_hour', as: :business_hour
+end

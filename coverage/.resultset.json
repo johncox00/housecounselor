@@ -135,6 +135,19 @@
           null
         ]
       },
+      "/Users/johncox/projects/personal/homeadvisor/housecouselor/config/initializers/constants.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/johncox/projects/personal/homeadvisor/housecouselor/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
@@ -239,12 +252,18 @@
           1,
           1,
           1,
-          null,
+          1,
           null,
           null
         ]
       },
       "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/helpers/business_hours_helper.rb": {
         "lines": [
           1,
           null
@@ -265,6 +284,122 @@
       "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/helpers/work_types_helper.rb": {
         "lines": [
           1,
+          null
+        ]
+      },
+      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/controllers/business_hours_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          2,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          2,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          6,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          26,
+          26,
+          null,
+          null,
+          1,
+          null,
+          1,
+          22,
+          2,
+          2,
+          0,
+          null,
+          2,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          4,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -380,43 +515,6 @@
           null
         ]
       },
-      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          20,
-          20,
-          null,
-          null,
-          1,
-          null,
-          1,
-          17,
-          2,
-          2,
-          0,
-          null,
-          2,
-          null,
-          2,
-          null,
-          null,
-          null,
-          null,
-          1,
-          2,
-          2,
-          4,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
       "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/controllers/reviews_controller.rb": {
         "lines": [
           1,
@@ -528,10 +626,8 @@
           null,
           2,
           2,
-          1,
           2,
           null,
-          1,
           2,
           null,
           null,
@@ -539,21 +635,18 @@
           null,
           null,
           null,
-          1,
           1,
           1,
           1,
           2,
           null,
           0,
-          0,
           null,
           null,
           null,
           null,
           null,
           null,
-          1,
           1,
           1,
           1,
@@ -574,6 +667,31 @@
           null
         ]
       },
+      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/business_hour.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          17,
+          null,
+          null
+        ]
+      },
+      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/business.rb": {
         "lines": [
           1,
@@ -582,12 +700,6 @@
           1,
           1,
           1,
-          1,
-          null
-        ]
-      },
-      "/Users/johncox/projects/personal/homeadvisor/housecouselor/app/models/application_record.rb": {
-        "lines": [
           1,
           1,
           null
@@ -674,6 +786,6 @@
         ]
       }
     },
-    "timestamp": 1596284380
+    "timestamp": 1596288172
   }
 }

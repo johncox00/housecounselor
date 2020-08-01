@@ -1,4 +1,4 @@
-BusinessHour
+x BusinessHour
   - day (unique, scope business)
   - open_hour
   - close_hour

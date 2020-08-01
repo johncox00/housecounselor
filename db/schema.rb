@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_01_114913) do
+ActiveRecord::Schema.define(version: 2020_08_01_123629) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line1"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 2020_08_01_114913) do
     t.index ["city_id"], name: "index_addresses_on_city_id"
     t.index ["postal_code_id"], name: "index_addresses_on_postal_code_id"
     t.index ["state_id"], name: "index_addresses_on_state_id"
+  end
+
+  create_table "business_hours", force: :cascade do |t|
+    t.integer "day"
+    t.integer "open"
+    t.integer "close"
+    t.integer "business_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_id"], name: "index_business_hours_on_business_id"
   end
 
   create_table "business_work_types", force: :cascade do |t|
@@ -91,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_08_01_114913) do
   add_foreign_key "addresses", "cities"
   add_foreign_key "addresses", "postal_codes"
   add_foreign_key "addresses", "states"
+  add_foreign_key "business_hours", "businesses"
   add_foreign_key "business_work_types", "businesses"
   add_foreign_key "business_work_types", "work_types"
   add_foreign_key "cities", "states"

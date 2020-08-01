@@ -28,10 +28,8 @@ class WorkTypesController < ApplicationController
 
     respond_to do |format|
       if @work_type.save
-        format.html { redirect_to @work_type, notice: 'Work type was successfully created.' }
         format.json { render :show, status: :created, location: @work_type }
       else
-        format.html { render :new }
         format.json { render json: @work_type.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +40,8 @@ class WorkTypesController < ApplicationController
   def update
     respond_to do |format|
       if @work_type.update(work_type_params)
-        format.html { redirect_to @work_type, notice: 'Work type was successfully updated.' }
         format.json { render :show, status: :ok, location: @work_type }
       else
-        format.html { render :edit }
         format.json { render json: @work_type.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +52,6 @@ class WorkTypesController < ApplicationController
   def destroy
     @work_type.destroy
     respond_to do |format|
-      format.html { redirect_to work_types_url, notice: 'Work type was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

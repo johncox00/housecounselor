@@ -46,8 +46,11 @@ RSpec.describe BusinessesController, type: :controller do
   describe "GET #show" do
     it "returns the thing" do
       b = biz
+      FactoryBot.create(:business_hour, business: b)
       get :show, params: {id: b.id}, session: valid_session, format: :json
-      expect(JSON.parse(response.body)['name']).to eq(b.name)
+      json = JSON.parse(response.body)
+      expect(json['name']).to eq(b.name)
+      expect(json['business_hours'].length).to eq(1)
     end
 
     it "returns a 404" do
@@ -63,7 +66,6 @@ RSpec.describe BusinessesController, type: :controller do
           json = JSON.parse(response.body)
           expect(json['address_attributes']['postal_code']).to eq('80126')
           expect(json['work_types'].length).to eq(2)
-          binding.pry
         }.to change(Business, :count).by(1)
       end
     end
