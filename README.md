@@ -102,7 +102,7 @@ Here's sample JSON for creating a business:
 
 It should be noted that `address_attributes`, `work_types`, and `operating_cities` are all indicative of nested resources being passed into the businesses controller and then validated and persisted in relation to the business in question. While we could have added `business_hours` as a nested resource in this request, I opted to have those added separately through a scoped path. On the subject of scoped paths, it's also worth noting that reviews work through a scoped path as well, being that they will always be in relation to a specific business.
 
-Work types, cities, states, and postal codes are all normalized out to their own tables. Is this 100% necessary for keeping up with addresses and types or work? No. But it does help us to maintain structured data and it makes searching for businesses by various geographical data points _much_ easier. So here are some other resource JSON examples...
+Work types, cities, states, and postal codes are all normalized out to their own tables. Is this 100% necessary for keeping up with addresses and types of work? No. But it does help us to maintain structured data and it makes searching for businesses by various geographical data points _much_ easier. So here are some other resource JSON examples...
 
 Review:
 ```
