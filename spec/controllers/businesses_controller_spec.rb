@@ -12,7 +12,12 @@ RSpec.describe BusinessesController, type: :controller do
         city: 'Littleton',
         state: 'CO',
         postal_code: '80126'
-      }
+      },
+      work_types: [
+        'Construct',
+        'Destroy',
+        'Not real'
+      ]
     }
   }
 
@@ -21,6 +26,12 @@ RSpec.describe BusinessesController, type: :controller do
   }
 
   let(:valid_session) { {} }
+
+  before do
+    WorkType.find_or_create_by(name: 'Construct')
+    WorkType.find_or_create_by(name: 'Destroy')
+    WorkType.find_or_create_by(name: 'Clean')
+  end
 
   describe "GET #index" do
     it "returns a success response" do
@@ -49,7 +60,10 @@ RSpec.describe BusinessesController, type: :controller do
       it "creates a new Business with an address" do
         expect {
           post :create, params: {business: valid_attributes}, session: valid_session, format: :json
-          expect(JSON.parse(response.body)['address_attributes']['postal_code']).to eq('80126')
+          json = JSON.parse(response.body)
+          expect(json['address_attributes']['postal_code']).to eq('80126')
+          expect(json['work_types'].length).to eq(2)
+          binding.pry
         }.to change(Business, :count).by(1)
       end
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_01_113030) do
+ActiveRecord::Schema.define(version: 2020_08_01_114913) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line1"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2020_08_01_113030) do
     t.index ["city_id"], name: "index_addresses_on_city_id"
     t.index ["postal_code_id"], name: "index_addresses_on_postal_code_id"
     t.index ["state_id"], name: "index_addresses_on_state_id"
+  end
+
+  create_table "business_work_types", force: :cascade do |t|
+    t.integer "business_id", null: false
+    t.integer "work_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_id"], name: "index_business_work_types_on_business_id"
+    t.index ["work_type_id"], name: "index_business_work_types_on_work_type_id"
   end
 
   create_table "businesses", force: :cascade do |t|
@@ -82,6 +91,8 @@ ActiveRecord::Schema.define(version: 2020_08_01_113030) do
   add_foreign_key "addresses", "cities"
   add_foreign_key "addresses", "postal_codes"
   add_foreign_key "addresses", "states"
+  add_foreign_key "business_work_types", "businesses"
+  add_foreign_key "business_work_types", "work_types"
   add_foreign_key "cities", "states"
   add_foreign_key "city_postal_codes", "cities"
   add_foreign_key "city_postal_codes", "postal_codes"

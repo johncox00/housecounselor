@@ -16,7 +16,7 @@ x Address
   - addressable_type
   - addressable_id
 
-WorkType
+x WorkType
   - name
 
 x City
@@ -39,7 +39,7 @@ x Business
 
 ---join tables---
 
-BusinessWorkType
+x BusinessWorkType
   - business_id
   - work_type_id
 

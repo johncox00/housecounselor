@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-08-01T05:47:51-06:00">2020-08-01T05:47:51-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-08-01T06:19:40-06:00">2020-08-01T06:19:40-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  95.31%
+  94.67%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.85
+         1.81
        </span>
     </span> hits/line
     )
@@ -39,15 +39,15 @@
   <a name="AllFiles"></a>
 
   <div>
-    <b>31</b> files in total.
+    <b>32</b> files in total.
   </div>
 
   <div class="t-line-summary">
-    <b>213</b> relevant lines,
-    <span class="green"><b>203</b> lines covered</span> and
-    <span class="red"><b>10</b> lines missed. </span>
+    <b>225</b> relevant lines,
+    <span class="green"><b>213</b> lines covered</span> and
+    <span class="red"><b>12</b> lines missed. </span>
     (<span class="green">
-  95.31%
+  94.67%
 </span>
 )
   </div>
@@ -83,12 +83,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#e1e1e71b2e42c98f1d6e8ff4afeb502613c78c6b" class="src_link" title="app/controllers/businesses_controller.rb">app/controllers/businesses_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">94.12 %</td>
-            <td class="cell--number">105</td>
-            <td class="cell--number">51</td>
-            <td class="cell--number">48</td>
-            <td class="cell--number">3</td>
-            <td class="cell--number">1.86</td>
+            <td class="green strong cell--number t-file__coverage">90.91 %</td>
+            <td class="cell--number">108</td>
+            <td class="cell--number">55</td>
+            <td class="cell--number">50</td>
+            <td class="cell--number">5</td>
+            <td class="cell--number">1.84</td>
             
           </tr>
         
@@ -183,9 +183,20 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#e31706fc93073e96d8af853fbe2dc77ca9af47a5" class="src_link" title="app/models/business.rb">app/models/business.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">6</td>
+            <td class="cell--number">8</td>
+            <td class="cell--number">7</td>
+            <td class="cell--number">7</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.00</td>
+            
+          </tr>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#816a9ffff25b4c4f618841e8813ea765c906f7b4" class="src_link" title="app/models/business_work_type.rb">app/models/business_work_type.rb</a></td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">5</td>
-            <td class="cell--number">5</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">4</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -249,9 +260,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#9a9bb5a7d6a7f26fbf678a7195a6637ab5266f19" class="src_link" title="app/models/work_type.rb">app/models/work_type.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">3</td>
-            <td class="cell--number">2</td>
-            <td class="cell--number">2</td>
+            <td class="cell--number">5</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">4</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -827,7 +838,7 @@
     <h3>app/controllers/businesses_controller.rb</h3>
     <h4>
       <span class="green">
-  94.12%
+  90.91%
 </span>
 
       lines covered
@@ -836,9 +847,9 @@
     
 
     <div class="t-line-summary">
-      <b>51</b> relevant lines.
-      <span class="green"><b>48</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
+      <b>55</b> relevant lines.
+      <span class="green"><b>50</b> lines covered</span> and
+      <span class="red"><b>5</b> lines missed.</span>
     </div>
 
     
@@ -1185,29 +1196,29 @@
 
             
 
-            <code class="ruby">    @business = Business.new(modified_params)</code>
+            <code class="ruby">    @business = Business.new(modified_params.except(:work_types))</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="32">
+            <span class="hits">2</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">    @business.work_types = WorkType.where(name: business_params[:work_types])</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="33">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="33">
+            <span class="hits">2</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">    respond_to do |format|</code>
           </li>
         </div>
       
@@ -1218,7 +1229,7 @@
 
             
 
-            <code class="ruby">    respond_to do |format|</code>
+            <code class="ruby">      if @business.save</code>
           </li>
         </div>
       
@@ -1229,23 +1240,12 @@
 
             
 
-            <code class="ruby">      if @business.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="36">
-            <span class="hits">2</span>
-            
-
-            
-
             <code class="ruby">        format.json { render :show, status: :created, location: @business }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="never" data-hits="" data-linenumber="36">
             
             
 
@@ -1256,13 +1256,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="38">
+          <li class="covered" data-hits="2" data-linenumber="37">
             <span class="hits">2</span>
             
 
             
 
             <code class="ruby">        format.json { render json: @business.errors, status: :unprocessable_entity }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="38">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -1273,7 +1284,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1284,7 +1295,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1295,7 +1306,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1306,7 +1317,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  # PATCH/PUT /businesses/1</code>
           </li>
         </div>
       
@@ -1317,23 +1328,12 @@
 
             
 
-            <code class="ruby">  # PATCH/PUT /businesses/1</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="44">
-            
-            
-
-            
-
             <code class="ruby">  # PATCH/PUT /businesses/1.json</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="45">
+          <li class="covered" data-hits="1" data-linenumber="44">
             <span class="hits">1</span>
             
 
@@ -1344,13 +1344,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="46">
+          <li class="covered" data-hits="1" data-linenumber="45">
             <span class="hits">1</span>
             
 
             
 
             <code class="ruby">    respond_to do |format|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="46">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      if @business.update(modified_params.except(:work_types))</code>
           </li>
         </div>
       
@@ -1361,12 +1372,45 @@
 
             
 
-            <code class="ruby">      if @business.update(modified_params)</code>
+            <code class="ruby">        if business_params[:work_types]</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="48">
+          <li class="missed" data-hits="0" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby">          @business.work_types = WorkType.where(name: business_params[:work_types])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="49">
+            
+            
+
+            
+
+            <code class="ruby">          @business.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="51">
             <span class="hits">2</span>
             
 
@@ -1377,7 +1421,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
+          <li class="never" data-hits="" data-linenumber="52">
             
             
 
@@ -1388,7 +1432,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="50">
+          <li class="missed" data-hits="0" data-linenumber="53">
             
             
 
@@ -1399,7 +1443,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="51">
+          <li class="missed" data-hits="0" data-linenumber="54">
             
             
 
@@ -1410,46 +1454,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="52">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="53">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="54">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
           <li class="never" data-hits="" data-linenumber="55">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -1460,7 +1471,7 @@
 
             
 
-            <code class="ruby">  # DELETE /businesses/1</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1471,12 +1482,45 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="58">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="59">
+            
+            
+
+            
+
+            <code class="ruby">  # DELETE /businesses/1</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="60">
+            
+            
+
+            
+
             <code class="ruby">  # DELETE /businesses/1.json</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="58">
+          <li class="covered" data-hits="1" data-linenumber="61">
             <span class="hits">1</span>
             
 
@@ -1487,7 +1531,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="59">
+          <li class="covered" data-hits="1" data-linenumber="62">
             <span class="hits">1</span>
             
 
@@ -1498,7 +1542,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="60">
+          <li class="covered" data-hits="1" data-linenumber="63">
             <span class="hits">1</span>
             
 
@@ -1509,7 +1553,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="61">
+          <li class="covered" data-hits="2" data-linenumber="64">
             <span class="hits">2</span>
             
 
@@ -1520,46 +1564,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="62">
+          <li class="never" data-hits="" data-linenumber="65">
             
             
 
             
 
             <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="63">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="64">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="65">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  private</code>
           </li>
         </div>
       
@@ -1570,29 +1581,29 @@
 
             
 
-            <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="67">
+          <li class="never" data-hits="" data-linenumber="67">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="68">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def set_business</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="68">
-            <span class="hits">4</span>
-            
-
-            
-
-            <code class="ruby">      @business = Business.find(params[:id])</code>
+            <code class="ruby">  private</code>
           </li>
         </div>
       
@@ -1603,40 +1614,40 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="70">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="71">
+          <li class="covered" data-hits="1" data-linenumber="70">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def set_city</code>
+            <code class="ruby">    def set_business</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="72">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="71">
+            <span class="hits">4</span>
             
 
             
 
-            <code class="ruby">      @city = City.find_or_create_by(name: business_params[:address_attributes][:city], state: @state) if business_params[:address_attributes] &amp;&amp; business_params[:address_attributes][:city]</code>
+            <code class="ruby">      @business = Business.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="72">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1647,40 +1658,40 @@
 
             
 
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="74">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="75">
+          <li class="covered" data-hits="1" data-linenumber="74">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def set_state</code>
+            <code class="ruby">    def set_city</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="76">
+          <li class="covered" data-hits="3" data-linenumber="75">
             <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">      @state = State.find_or_create_by(abbr: business_params[:address_attributes][:state]) if business_params[:address_attributes] &amp;&amp; business_params[:address_attributes][:state]</code>
+            <code class="ruby">      @city = City.find_or_create_by(name: business_params[:address_attributes][:city], state: @state) if business_params[:address_attributes] &amp;&amp; business_params[:address_attributes][:city]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="76">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1691,40 +1702,40 @@
 
             
 
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="78">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="79">
+          <li class="covered" data-hits="1" data-linenumber="78">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def set_zip</code>
+            <code class="ruby">    def set_state</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="80">
+          <li class="covered" data-hits="3" data-linenumber="79">
             <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">      @zip = PostalCode.find_or_create_by(code: business_params[:address_attributes][:postal_code]) if business_params[:address_attributes] &amp;&amp; business_params[:address_attributes][:postal_code]</code>
+            <code class="ruby">      @state = State.find_or_create_by(abbr: business_params[:address_attributes][:state]) if business_params[:address_attributes] &amp;&amp; business_params[:address_attributes][:state]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="80">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1735,40 +1746,40 @@
 
             
 
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="82">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="83">
+          <li class="covered" data-hits="1" data-linenumber="82">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def set_city_postal_code</code>
+            <code class="ruby">    def set_zip</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="84">
+          <li class="covered" data-hits="3" data-linenumber="83">
             <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">      @city_postal_code = CityPostalCode.find_or_create_by(postal_code: @zip, city: @city) if @city &amp;&amp; @zip</code>
+            <code class="ruby">      @zip = PostalCode.find_or_create_by(code: business_params[:address_attributes][:postal_code]) if business_params[:address_attributes] &amp;&amp; business_params[:address_attributes][:postal_code]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="84">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1779,51 +1790,51 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="86">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def set_city_postal_code</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="87">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">      @city_postal_code = CityPostalCode.find_or_create_by(postal_code: @zip, city: @city) if @city &amp;&amp; @zip</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="88">
+            
+            
+
+            
+
             <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="86">
+          <li class="never" data-hits="" data-linenumber="89">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="87">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    def modified_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="88">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">      if business_params[:address_attributes]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="89">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        new_params = business_params[:address_attributes].except(:city, :state, :postal_code)</code>
           </li>
         </div>
       
@@ -1834,18 +1845,18 @@
 
             
 
-            <code class="ruby">        new_params[:city_id] = @city.id if business_params[:address_attributes][:city]</code>
+            <code class="ruby">    def modified_params</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="91">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="3" data-linenumber="91">
+            <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">        new_params[:state_id] = @state.id if business_params[:address_attributes][:state]</code>
+            <code class="ruby">      if business_params[:address_attributes]</code>
           </li>
         </div>
       
@@ -1856,7 +1867,7 @@
 
             
 
-            <code class="ruby">        new_params[:postal_code_id] = @zip.id if business_params[:address_attributes][:postal_code]</code>
+            <code class="ruby">        new_params = business_params[:address_attributes].except(:city, :state, :postal_code)</code>
           </li>
         </div>
       
@@ -1867,7 +1878,7 @@
 
             
 
-            <code class="ruby">        ret = business_params.dup</code>
+            <code class="ruby">        new_params[:city_id] = @city.id if business_params[:address_attributes][:city]</code>
           </li>
         </div>
       
@@ -1878,12 +1889,45 @@
 
             
 
+            <code class="ruby">        new_params[:state_id] = @state.id if business_params[:address_attributes][:state]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="95">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        new_params[:postal_code_id] = @zip.id if business_params[:address_attributes][:postal_code]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="96">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        ret = business_params.dup</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="97">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">        ret[:address_attributes] = new_params</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="95">
+          <li class="never" data-hits="" data-linenumber="98">
             
             
 
@@ -1894,7 +1938,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="96">
+          <li class="covered" data-hits="2" data-linenumber="99">
             <span class="hits">2</span>
             
 
@@ -1905,7 +1949,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="97">
+          <li class="never" data-hits="" data-linenumber="100">
             
             
 
@@ -1916,7 +1960,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="98">
+          <li class="covered" data-hits="3" data-linenumber="101">
             <span class="hits">3</span>
             
 
@@ -1927,7 +1971,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="99">
+          <li class="never" data-hits="" data-linenumber="102">
             
             
 
@@ -1938,7 +1982,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="100">
+          <li class="never" data-hits="" data-linenumber="103">
             
             
 
@@ -1949,7 +1993,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="101">
+          <li class="never" data-hits="" data-linenumber="104">
             
             
 
@@ -1960,7 +2004,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="102">
+          <li class="covered" data-hits="1" data-linenumber="105">
             <span class="hits">1</span>
             
 
@@ -1971,18 +2015,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="25" data-linenumber="103">
-            <span class="hits">25</span>
+          <li class="covered" data-hits="28" data-linenumber="106">
+            <span class="hits">28</span>
             
 
             
 
-            <code class="ruby">      params.require(:business).permit(:name, address_attributes: [:id, :line1, :line2, :city, :state, :postal_code])</code>
+            <code class="ruby">      params.require(:business).permit(:name, address_attributes: [:id, :line1, :line2, :city, :state, :postal_code], work_types: [])</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="104">
+          <li class="never" data-hits="" data-linenumber="107">
             
             
 
@@ -1993,7 +2037,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="105">
+          <li class="never" data-hits="" data-linenumber="108">
             
             
 
@@ -4096,8 +4140,8 @@
     
 
     <div class="t-line-summary">
-      <b>5</b> relevant lines.
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>7</b> relevant lines.
+      <span class="green"><b>7</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -4148,7 +4192,7 @@
 
             
 
-            <code class="ruby">  validates :name, presence: true</code>
+            <code class="ruby">  has_many :business_work_types</code>
           </li>
         </div>
       
@@ -4159,12 +4203,120 @@
 
             
 
+            <code class="ruby">  has_many :work_types, through: :business_work_types</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  validates :name, presence: true</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="7">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">  accepts_nested_attributes_for :address, update_only: true</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="6">
+          <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="816a9ffff25b4c4f618841e8813ea765c906f7b4">
+  <div class="header">
+    <h3>app/models/business_work_type.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>4</b> relevant lines.
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">class BusinessWorkType &lt; ApplicationRecord</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="2">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  belongs_to :business</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  belongs_to :work_type</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  validates :work_type, uniqueness: { scope: :business_id }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="5">
             
             
 
@@ -4700,8 +4852,8 @@
     
 
     <div class="t-line-summary">
-      <b>2</b> relevant lines.
-      <span class="green"><b>2</b> lines covered</span> and
+      <b>4</b> relevant lines.
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -4730,12 +4882,34 @@
 
             
 
+            <code class="ruby">  has_many :business_work_types</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  has_many :businesses, through: :business_work_types</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">  validates :name, presence: true, uniqueness: true</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="3">
+          <li class="never" data-hits="" data-linenumber="5">
             
             
 
