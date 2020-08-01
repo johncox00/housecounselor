@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :work_types
   resources :businesses do
     resources :reviews
   end

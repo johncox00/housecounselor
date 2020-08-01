@@ -4,7 +4,7 @@ BusinessHour
   - close_hour
   - business_id
 
-Address
+x Address
   - line1
   - line2
   - city_id
@@ -19,21 +19,21 @@ Address
 WorkType
   - name
 
-City
+x City
   - name
 
-PostalCode
+x PostalCode
   - code (unique)
 
-State
+x State
   - abbr
 
-Review
+x Review
   - rating
   - comment
   - business_id
 
-Business
+x Business
   - name
   - avg_rating
 
@@ -43,10 +43,6 @@ BusinessWorkType
   - business_id
   - work_type_id
 
-BusinessReview
-  - business_id
-  - review_id
-
-CityPostalCode
+x CityPostalCode
   - city_id
   - postal_code_id
