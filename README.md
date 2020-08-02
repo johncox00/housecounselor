@@ -2,7 +2,7 @@
 
 Here we have a fairly simple (naive?) REST API designed to allow service business to provide information about themselves and receive ratings and reviews. The resources and outputs of this API don't match the sample data from this assignment 100% just to keep things Rails-y in this Rails app, but the ideas behind them absolutely do.
 
-In this document, we'll first go through setting up the app to run on a Mac. Then we'll talk about some of the particulars of the API and how to analyze what has been done. There's not much deviation from standard REST patterns executed in Rails' MVC framework.
+In this document, we'll first go through setting up the app to run in a Docker container or locally (on a Mac). Then we'll talk about some of the particulars of the API and how to analyze what has been done. There's not much deviation from standard REST patterns executed in Rails' MVC framework.
 
 ## Set-up
 
@@ -10,7 +10,7 @@ You have 2 choices for running the project:
 
 1. Build a Docker container with all of the dependencies worked out. This is great if you don't have a Rails environment set up yet, but you won't have a great way to see the HTML output of the test coverage.
 
-2. Set up your local environment and run it locally.
+2. Set up your local environment and run it locally. This is great if you're comfortable with getting a Rails development environment set up or you already have it set up.
 
 Both approaches are described below.
 
@@ -28,9 +28,11 @@ docker run -it housecounselor rspec
 ```
 
 Run the server:
-`docker run -it -p 3000:3000 housecounselor rails s -b 0.0.0.0`
+```
+docker run -it -p 3000:3000 housecounselor rails s -b 0.0.0.0
+```
 
-Now you can starting hitting the API at `http://localhost:3000`. Read on below for the specifics about the API and testing with Postman. When you're done, just `ctrl+c` in the terminal where you started the Docker container. If you're really into Docker, you could run it with the `-d` option to background it.
+Now you can start hitting the API at `http://localhost:3000`. Read on below for the specifics about the API and testing with Postman. When you're done, just `ctrl+c` in the terminal where you started the Docker container. If you're really into Docker, you could run it with the `-d` option to background it.
 
 ### Run It Locally
 
