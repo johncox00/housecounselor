@@ -6,12 +6,40 @@ In this document, we'll first go through setting up the app to run on a Mac. The
 
 ## Set-up
 
-The Ruby version used for this project is `2.6.5`. I use [Ruby Version Manager](https://rvm.io/) to manage my per-project dependencies, and I generally use it to install and manage different versions of Ruby per their documentation. If you're not doing a lot of Rails development, you may not need it. I'm going to assume that you have RVM installed for the first part of the set-up and that you're in the directory above root of this project having just cloned it.
+You have 2 choices for running the project:
+
+1. Build a Docker container with all of the dependencies worked out. This is great if you don't have a Rails environment set up yet, but you won't have a great way to see the HTML output of the test coverage.
+
+2. Set up your local environment and run it locally.
+
+Both approaches are described below.
+
+### Docker
+
+```
+cd ~/yourdir/housecounselor # the directory the app was cloned into
+docker build -t housecounselor .
+```
+
+Awesome! Now hop into the container and run the tests:
+
+```
+docker run -it housecounselor rspec
+```
+
+Run the server:
+`docker run -it -p 3000:3000 housecounselor rails s -b 0.0.0.0`
+
+Now you can starting hitting the API at `http://localhost:3000`. Read on below for the specifics about the API and testing with Postman. When you're done, just `ctrl+c` in the terminal where you started the Docker container. If you're really into Docker, you could run it with the `-d` option to background it.
+
+### Run It Locally
+
+The Ruby version used for this project is `2.6.6`. I use [Ruby Version Manager](https://rvm.io/) to manage my per-project dependencies, and I generally use it to install and manage different versions of Ruby per their documentation. If you're not doing a lot of Rails development, you may not need it. I'm going to assume that you have RVM installed for the first part of the set-up and that you're in the directory above root of this project having just cloned it.
 
 Here we go:
 
 ```
-rvm install 2.6.5
+rvm install ruby-2.6.6
 cd ./housecounselor # this should generate the wrappers for your project dependencies
 gem install bundler
 bundle
@@ -20,16 +48,18 @@ brew install yarn # I'm running 1.22.4 for reference
 yarn install --check-files
 rails webpacker:install
 rails db:migrate
-rails db:seed # this will take a minute as it adds all the zip codes and cites in Colorado for testing...more on that later
+rails db:seed # this will take a minute as it adds all the zip codes and cites in Colorado for testing (more on that later). It also adds some default work types.
 ```
 
 ## Testing and Analysis
 
-Once you have your environment up and running, you can run tests by running `rspec`.
+Once you have your environment up and running, you can run tests by running `rspec`. Locally, this means typing `rspec` and hitting enter at the root of the project. In the Docker container, you'll run `docker run -it -p 3000:3000 housecounselor rspec`.
 
-After running Rspec, you can take a look at the test coverage report in `/coverage/index.html`.
+After running `rspec`, you can take a look at the test coverage report in `/coverage/index.html` or just take a look at the end of the line from the output from `rspec`. It shows you total coverage percentage.
 
-I've created a [Postman collection](https://www.getpostman.com/collections/c254e77052bb0089a218) for trying out the API if that's of interest. In order to run the calls against the API, you'll need to start the server by running `rails s` before executing any of the calls from Postman.
+I've created a [Postman collection](https://www.getpostman.com/collections/c254e77052bb0089a218) for trying out the API if that's of interest. In order to run the calls against the API, you'll need to start the server (`rails s` locally or `docker run -it -p 3000:3000 housecounselor rails s -b 0.0.0.0` for Docker.) before executing any of the calls from Postman. It's also worth noting that there is an order to creating resources that makes sense...For instance, you'd need to create `work_type`s before creating a `business` that uses them. To that end, the database seeding takes care of adding a few default work types.
+
+Speaking of database seeding, the database is seeded with all the cities and ZIP codes for Colorado for testing purposes. I express a few more thoughts on that subject below in my _Wish List_.
 
 Take a look at [Code Climate](https://codeclimate.com/github/johncox00/housecounselor) to dig into the static analysis of the code.
 
@@ -43,32 +73,24 @@ Here are the routes for the API and their associated controller actions:
 ```
 GET    /work_types                                                                    work_types#index
 POST   /work_types                                                                    work_types#create
-GET    /work_types/new                                                                work_types#new
-GET    /work_types/:id/edit                                                           work_types#edit
 GET    /work_types/:id                                                                work_types#show
 PATCH  /work_types/:id                                                                work_types#update
 PUT    /work_types/:id                                                                work_types#update
 DELETE /work_types/:id                                                                work_types#destroy
 GET    /businesses/:business_id/reviews                                               reviews#index
 POST   /businesses/:business_id/reviews                                               reviews#create
-GET    /businesses/:business_id/reviews/new                                           reviews#new
-GET    /businesses/:business_id/reviews/:id/edit                                      reviews#edit
 GET    /businesses/:business_id/reviews/:id                                           reviews#show
 PATCH  /businesses/:business_id/reviews/:id                                           reviews#update
 PUT    /businesses/:business_id/reviews/:id                                           reviews#update
 DELETE /businesses/:business_id/reviews/:id                                           reviews#destroy
 GET    /businesses/:business_id/business_hours                                        business_hours#index
 POST   /businesses/:business_id/business_hours                                        business_hours#create
-GET    /businesses/:business_id/business_hours/new                                    business_hours#new
-GET    /businesses/:business_id/business_hours/:id/edit                               business_hours#edit
 GET    /businesses/:business_id/business_hours/:id                                    business_hours#show
 PATCH  /businesses/:business_id/business_hours/:id                                    business_hours#update
 PUT    /businesses/:business_id/business_hours/:id                                    business_hours#update
 DELETE /businesses/:business_id/business_hours/:id                                    business_hours#destroy
 GET    /businesses                                                                    businesses#index
 POST   /businesses                                                                    businesses#create
-GET    /businesses/new                                                                businesses#new
-GET    /businesses/:id/edit                                                           businesses#edit
 GET    /businesses/:id                                                                businesses#show
 PATCH  /businesses/:id                                                                businesses#update
 PUT    /businesses/:id                                                                businesses#update
