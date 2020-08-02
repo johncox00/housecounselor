@@ -9,7 +9,7 @@
 
 require "csv"
 
-
+puts "Creating Colorado cities...(this will take a few minutes)"
 filename = File.dirname(File.dirname(File.expand_path(__FILE__))) + '/db/zip_code_database.csv'
 CSV.foreach(filename, headers: true) do |row|
   s = row['state']
@@ -30,3 +30,22 @@ CSV.foreach(filename, headers: true) do |row|
     end
   end
 end
+
+puts 'Creating work types...'
+[
+  'Plumbing',
+  'Electrical',
+  'HVAC',
+  'Lawn care',
+  'Landscaping',
+  'Roofing',
+  'Carpentry',
+  'Demolition',
+  'Pest control',
+  'Moving',
+  'Windows'
+].each do |service|
+  WorkType.find_or_create_by(name: service)
+end
+
+puts "Done!"

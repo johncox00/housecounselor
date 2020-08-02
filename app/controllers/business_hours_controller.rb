@@ -13,15 +13,6 @@ class BusinessHoursController < ApplicationController
   def show
   end
 
-  # GET /business_hours/new
-  def new
-    @business_hour = BusinessHour.new
-  end
-
-  # GET /business_hours/1/edit
-  def edit
-  end
-
   # POST /business_hours
   # POST /business_hours.json
   def create

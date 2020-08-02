@@ -11,3 +11,6 @@ end
 json.operating_cities do
   json.array! business.cities.pluck(:name)
 end
+json.latest_reviews do
+  json.array! business.reviews.order('created_at DESC').limit(5)
+end

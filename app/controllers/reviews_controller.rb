@@ -14,15 +14,6 @@ class ReviewsController < ApplicationController
   def show
   end
 
-  # GET /reviews/new
-  def new
-    @review = Review.new
-  end
-
-  # GET /reviews/1/edit
-  def edit
-  end
-
   # POST /reviews
   # POST /reviews.json
   def create

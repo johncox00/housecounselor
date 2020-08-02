@@ -74,15 +74,6 @@ class BusinessesController < ApplicationController
   def show
   end
 
-  # GET /businesses/new
-  def new
-    @business = Business.new
-  end
-
-  # GET /businesses/1/edit
-  def edit
-  end
-
   # POST /businesses
   # POST /businesses.json
   def create

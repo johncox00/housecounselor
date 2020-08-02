@@ -12,15 +12,6 @@ class WorkTypesController < ApplicationController
   def show
   end
 
-  # GET /work_types/new
-  def new
-    @work_type = WorkType.new
-  end
-
-  # GET /work_types/1/edit
-  def edit
-  end
-
   # POST /work_types
   # POST /work_types.json
   def create

@@ -15,7 +15,9 @@ rvm install 2.6.5
 cd ./housecounselor # this should generate the wrappers for your project dependencies
 gem install bundler
 bundle
-brew install node
+brew install node # I'm running node 14.7.0 for reference
+brew install yarn # I'm running 1.22.4 for reference
+yarn install --check-files
 rails webpacker:install
 rails db:migrate
 rails db:seed # this will take a minute as it adds all the zip codes and cites in Colorado for testing...more on that later
@@ -163,7 +165,7 @@ You can filter the `GET /businesses` request using the query string parameters o
 | `open_days` | Takes a comma-delimited string of numbers representing days of the week that you want to see businesses open. (0 is Sunday)  |
 | `work_type`  | Will show business that do this type of work.  |
 |  `postal_code` | Will map the give zip code to any related cities and return businesses that operate in those cities.  |
-|  `city` | Will look for businesses that operate int he specific city. (case sensitive)  |
+|  `city` | Will look for businesses that operate in the specific city. (case sensitive)  |
 | `rating`  | Return any businesses with the given rating or higher.  |
 
 ### Sorting
@@ -179,4 +181,4 @@ We use the `sort` query string parameter on the `GET /businesses` request to spe
 
 ### Wish List
 
-In an ideal situation, we would include authentication and authorization mechanisms for this API. We would also probably look to facilitate filtering (and maybe sorting) using a tool like Elasticsearch for performance rather than all the joins and sub-queries being executed in this exercise. Lastly, it would probably make sense to integrate with something like Google Maps for verifying address information and assigning latitude and longitude values to be used in our geographic search. Using a tool like Google Maps would eliminate the need(?) for pre-populating cities and postal codes by normalizing city names and zip codes on the fly as data is entered. 
+In an ideal situation, we would include authentication and authorization mechanisms for this API. We would also probably look to facilitate filtering (and maybe sorting) using a tool like Elasticsearch for performance rather than all the joins and sub-queries being executed in this exercise. Lastly, it would probably make sense to integrate with something like Google Maps for verifying address information and assigning latitude and longitude values to be used in our geographic search. Using a tool like Google Maps would eliminate the need(?) for pre-populating cities and postal codes by normalizing city names and zip codes on the fly as data is entered.
