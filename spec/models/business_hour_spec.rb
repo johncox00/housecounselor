@@ -26,6 +26,20 @@ RSpec.describe BusinessHour, type: :model do
       h = FactoryBot.create(:business_hour)
       expect(FactoryBot.build(:business_hour, business: h.business, day: h.day)).to_not be_valid
     end
+
+    it 'requires open to be before close' do
+      expect(FactoryBot.build(:business_hour, open: 12, close: 11)).to_not be_valid
+    end
+
+    it 'requires open and close to be in the valid range' do
+      expect(FactoryBot.build(:business_hour, open: -1)).to_not be_valid
+      expect(FactoryBot.build(:business_hour, open: 24, close: 25)).to_not be_valid
+      expect(FactoryBot.build(:business_hour, open: -2, close: -1)).to_not be_valid
+      expect(FactoryBot.build(:business_hour, close: 24)).to_not be_valid
+      (0..22).each do |h|
+        expect(FactoryBot.build(:business_hour, open: h, close: h+1)).to be_valid
+      end
+    end
   end
 
   it 'sets the day by string week day value' do

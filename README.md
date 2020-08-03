@@ -57,7 +57,7 @@ rails db:seed # this will take a minute as it adds all the zip codes and cites i
 
 Once you have your environment up and running, you can run tests by running `rspec`. Locally, this means typing `rspec` and hitting enter at the root of the project. In the Docker container, you'll run `docker run -it -p 3000:3000 housecounselor rspec`.
 
-After running `rspec`, you can take a look at the test coverage report in `/coverage/index.html` or just take a look at the end of the line from the output from `rspec`. It shows you total coverage percentage.
+After running `rspec`, you can take a look at the test coverage report in `/coverage/index.html` or just take a look at the end of the line from the output from `rspec`. It shows you total coverage percentage. If you want to look at all the test cases, take a peak in the `spec/models` and `spec/controllers` directories.
 
 I've created a [Postman collection](https://www.getpostman.com/collections/c254e77052bb0089a218) for trying out the API if that's of interest. In order to run the calls against the API, you'll need to start the server (`rails s` locally or `docker run -it -p 3000:3000 housecounselor rails s -b 0.0.0.0` for Docker.) before executing any of the calls from Postman. It's also worth noting that there is an order to creating resources that makes sense...For instance, you'd need to create `work_type`s before creating a `business` that uses them. To that end, the database seeding takes care of adding a few default work types.
 

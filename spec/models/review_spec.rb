@@ -9,6 +9,14 @@ RSpec.describe Review, type: :model do
     it 'requires a rating' do
       expect(FactoryBot.build(:review, rating: nil)).to_not be_valid
     end
+
+    it 'checks that the rating is 0 - 5' do
+      expect(FactoryBot.build(:review, rating: -1)).to_not be_valid
+      expect(FactoryBot.build(:review, rating: 6)).to_not be_valid
+      (0..5).each do |r|
+        expect(FactoryBot.build(:review, rating: r)).to be_valid
+      end
+    end
   end
 
   context 'hooks' do

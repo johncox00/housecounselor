@@ -8,7 +8,7 @@ RSpec.describe BusinessHoursController, type: :controller do
     {
       week_day: "Sunday",
       open: 8,
-      close: 6
+      close: 18
     }
   }
 
@@ -55,7 +55,7 @@ RSpec.describe BusinessHoursController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        { close: 9 }
+        { close: 21 }
       }
 
       it "updates the requested BusinessHour" do
@@ -63,7 +63,7 @@ RSpec.describe BusinessHoursController, type: :controller do
         put :update, params: {business_id: biz.id, id: b.id, business_hour: new_attributes}, session: valid_session, format: :json
         b.reload
         expect(response).to have_http_status(:success)
-        expect(b.close).to eq(9)
+        expect(b.close).to eq(21)
       end
     end
   end
