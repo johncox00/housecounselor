@@ -1,4 +1,4 @@
-# Housecounselor
+# HouseCounselor
 
 Here we have a fairly simple (naive?) REST API designed to allow service businesses to provide information about themselves and receive ratings and reviews. The resources and outputs of this API don't match the sample data from this assignment 100% just to keep things Rails-y in this Rails app, but the ideas behind them absolutely do.
 
